@@ -326,7 +326,7 @@ export default function DeveloperProfiles() {
                 <div className="max-w-[800px] w-full mx-auto pt-20 pb-64 px-8 bg-[#111] shadow-xl border border-white/5">
                     <div className="mb-8 text-white/60 text-lg w-full flex">
                         <p>TDC Portfolio </p>
-                        <p className="ml-2">Update <a target="_blank" href="https://github.com/astrod333/tdc/data/developers.ts" className="underline hover:text-white/80">this file</a> to change the list. </p>
+                        <p className="ml-2">Update <a target="_blank" href="https://github.com/astrod333/tdc/blob/main/data/developers.ts" className="underline hover:text-white/80">this file</a> to change the list. </p>
                     </div>
 
                     <div className="w-full flex flex-col gap-2">
