@@ -74,7 +74,7 @@ export default function RootLayout({
     name: 'Tanzania Developers Community',
     alternateName: 'TDC',
     url: baseUrl,
-    logo: `${baseUrl}/tdc.png`,
+    logo: `${baseUrl}/tdclogo.png`,
     description: 'The official digital hub for developers in Tanzania. Connect, learn, and grow with the largest tech community in the region.',
     sameAs: [
       // Add social media profiles here
