@@ -3,6 +3,7 @@ export interface Developer {
     twitter: string; // Just the username without the URL
     portfolio: string;
     github?: string | null;
+    avatar?: string;
 }
 
 export const developers: Developer[] = [
@@ -21,14 +22,16 @@ export const developers: Developer[] = [
     {
         "name": "Athumani Mwinami",
         "twitter": "",
-        "portfolio": "mwinami.github.io",
-        "github": "mwinamijr"
+        "portfolio": "https://mwinami.github.io",
+        "github": "mwinamijr",
+        "avatar": "https://github.com/mwinamijr.png"
     },
     {
         "name": "Dadi Nasser Utenga",
         "twitter": "",
-        "portfolio": "Dady.ditronics.co.tz",
-        "github": "dadyutenga"
+        "portfolio": "https://Dady.ditronics.co.tz",
+        "github": "dadyutenga",
+        "avatar": "https://github.com/dadyutenga.png"
     },
     {
         "name": "Daniel Josephat",
@@ -45,8 +48,9 @@ export const developers: Developer[] = [
     {
         "name": "Fadhluilahi Mohammed",
         "twitter": "",
-        "portfolio": "megamindame.com",
-        "github": "megamindame"
+        "portfolio": "https://megamindame.com",
+        "github": "megamindame",
+        "avatar": "https://github.com/megamindame.png"
     },
     {
         "name": "Fatima Bakari",
@@ -63,8 +67,9 @@ export const developers: Developer[] = [
     {
         "name": "James Mashaka",
         "twitter": "",
-        "portfolio": "NA",
-        "github": "islandkid-20"
+        "portfolio": "#",
+        "github": "islandkid-20",
+        "avatar": "https://github.com/islandkid-20.png"
     },
     {
         "name": "Joseph Everest",
@@ -87,14 +92,16 @@ export const developers: Developer[] = [
     {
         "name": "Sikjunior Mrimi",
         "twitter": "",
-        "portfolio": "N/A",
-        "github": "meetsik24"
+        "portfolio": "#",
+        "github": "meetsik24",
+        "avatar": "https://github.com/meetsik24.png"
     },
     {
         "name": "Stephanie Shawa",
         "twitter": "",
-        "portfolio": "tephyny.github.io",
-        "github": "Tephyny"
+        "portfolio": "https://tephyny.github.io",
+        "github": "Tephyny",
+        "avatar": "https://github.com/Tephyny.png"
     },
     {
         "name": "Revaycolizer",
