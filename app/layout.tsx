@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -86,17 +88,26 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <body
-        className={`${inter.variable} antialiased font-sans`}
+        className={`${inter.variable} flex h-full flex-col bg-zinc-50 dark:bg-black font-sans`}
       >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <div className="absolute top-4 right-4 z-50">
+        <div className="fixed inset-0 flex justify-center sm:px-8">
+          <div className="flex w-full max-w-7xl lg:px-8">
+            <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
+          </div>
         </div>
-        {children}
+        <div className="relative">
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </div>
         <Analytics />
       </body>
     </html>
