@@ -24,14 +24,14 @@ export const developers: Developer[] = [
     {
         "name": "Athumani Mwinami",
         "twitter": "",
-        "portfolio": "mwinami.github.io",
+        "portfolio": "https://mwinami.github.io",
         "github": "mwinamijr",
         "avatar": "https://github.com/mwinamijr.png"
     },
     {
         "name": "Dadi Nasser Utenga",
         "twitter": "",
-        "portfolio": "Dady.ditronics.co.tz",
+        "portfolio": "https://Dady.ditronics.co.tz",
         "github": "dadyutenga",
         "avatar": "https://github.com/dadyutenga.png"
     },
@@ -52,7 +52,7 @@ export const developers: Developer[] = [
     {
         "name": "Fadhluilahi Mohammed",
         "twitter": "",
-        "portfolio": "megamindame.com",
+        "portfolio": "https://megamindame.com",
         "github": "megamindame",
         "avatar": "https://github.com/megamindame.png"
     },
@@ -73,7 +73,7 @@ export const developers: Developer[] = [
     {
         "name": "James Mashaka",
         "twitter": "",
-        "portfolio": "NA",
+        "portfolio": "#",
         "github": "islandkid-20",
         "avatar": "https://github.com/islandkid-20.png"
     },
@@ -101,14 +101,14 @@ export const developers: Developer[] = [
     {
         "name": "Sikjunior Mrimi",
         "twitter": "",
-        "portfolio": "N/A",
+        "portfolio": "#",
         "github": "meetsik24",
         "avatar": "https://github.com/meetsik24.png"
     },
     {
         "name": "Stephanie Shawa",
         "twitter": "",
-        "portfolio": "tephyny.github.io",
+        "portfolio": "https://tephyny.github.io",
         "github": "Tephyny",
         "avatar": "https://github.com/Tephyny.png"
     },
