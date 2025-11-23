@@ -18,11 +18,11 @@ export default function Join() {
                         Ready to dive in?
                     </h2>
                     <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                        We use WhatsApp/Telegram for our daily communications. Click the button below to join our group.
+                        We use WhatsApp for our daily communications. Click the button below to join our group.
                     </p>
                     <div className="mt-6">
                         <Link
-                            href="#"
+                            href="https://chat.whatsapp.com/Cdm3XPRadGx1SaLlRJ3cDD"
                             className="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70"
                         >
                             Join
