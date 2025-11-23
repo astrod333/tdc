@@ -3,7 +3,6 @@ export interface Developer {
     twitter: string; // Just the username without the URL
     portfolio: string;
     github?: string | null;
-    avatar?: string;
 }
 
 export const developers: Developer[] = [
@@ -11,134 +10,115 @@ export const developers: Developer[] = [
         "name": "Alpha Olomi",
         "twitter": "",
         "portfolio": "https://alphaolomi.dev",
-        "github": "alphaolomi",
-        "avatar": "https://github.com/alphaolomi.png"
+        "github": "alphaolomi"
     },
     {
         "name": "Amina bahati kalonge",
         "twitter": "",
         "portfolio": "https://m1n4h.github.io",
-        "github": "m1n4h",
-        "avatar": "https://github.com/m1n4h.png"
+        "github": "m1n4h"
     },
     {
         "name": "Athumani Mwinami",
         "twitter": "",
         "portfolio": "mwinami.github.io",
-        "github": "mwinamijr",
-        "avatar": "https://github.com/mwinamijr.png"
+        "github": "mwinamijr"
     },
     {
         "name": "Dadi Nasser Utenga",
         "twitter": "",
         "portfolio": "Dady.ditronics.co.tz",
-        "github": "dadyutenga",
-        "avatar": "https://github.com/dadyutenga.png"
+        "github": "dadyutenga"
     },
     {
         "name": "Daniel Josephat",
         "twitter": "",
         "portfolio": "https://danmollel.space",
-        "github": "astrod333",
-        "avatar": "https://github.com/astrod333.png"
+        "github": "astrod333"
     },
     {
         "name": "DEOGRATIAS GEMINI",
         "twitter": "",
         "portfolio": "https://github.com/deogemini",
-        "github": "deogemini",
-        "avatar": "https://github.com/deogemini.png"
+        "github": "deogemini"
     },
     {
         "name": "Fadhluilahi Mohammed",
         "twitter": "",
         "portfolio": "megamindame.com",
-        "github": "megamindame",
-        "avatar": "https://github.com/megamindame.png"
+        "github": "megamindame"
     },
     {
         "name": "Fatima Bakari",
         "twitter": "",
         "portfolio": "https://www.fateemah.fyi/",
-        "github": "Fatima1510",
-        "avatar": "https://github.com/Fatima1510.png"
+        "github": "Fatima1510"
     },
     {
         "name": "Ismaili Simba",
         "twitter": "",
         "portfolio": "https://dev.to/ismailisimba",
-        "github": "ismailisimba",
-        "avatar": "https://github.com/ismailisimba.png"
+        "github": "ismailisimba"
     },
     {
         "name": "James Mashaka",
         "twitter": "",
         "portfolio": "NA",
-        "github": "islandkid-20",
-        "avatar": "https://github.com/islandkid-20.png"
+        "github": "islandkid-20"
     },
     {
         "name": "Joseph Everest",
         "twitter": "",
         "portfolio": "https://joeslab.uk",
-        "github": "JoeEverest",
-        "avatar": "https://github.com/JoeEverest.png"
+        "github": "JoeEverest"
     },
     {
         "name": "Leonard Chisokole",
         "twitter": "",
         "portfolio": "https://www.asantedigitals.co.tz",
-        "github": "leonard-chisokole-00450851",
-        "avatar": "https://github.com/leonard-chisokole-00450851.png"
+        "github": "leonard-chisokole-00450851"
     },
     {
         "name": "Moses Faustine",
         "twitter": "",
         "portfolio": "https://myportifolio-52a7b.web.app/",
-        "github": "m03azy",
-        "avatar": "https://github.com/m03azy.png"
+        "github": "m03azy"
     },
     {
         "name": "Sikjunior Mrimi",
         "twitter": "",
         "portfolio": "N/A",
-        "github": "meetsik24",
-        "avatar": "https://github.com/meetsik24.png"
+        "github": "meetsik24"
     },
     {
         "name": "Stephanie Shawa",
         "twitter": "",
         "portfolio": "tephyny.github.io",
-        "github": "Tephyny",
-        "avatar": "https://github.com/Tephyny.png"
+        "github": "Tephyny"
     },
     {
         "name": "Revaycolizer",
         "twitter": "",
         "portfolio": "https://github.com/Revaycolizer",
-        "github": "Revaycolizer",
-        "avatar": "https://github.com/Revaycolizer.png"
+        "github": "Revaycolizer"
     },
     {
         "name": "DENES MBEZI",
         "twitter": "",
         "portfolio": "https://github.com/denesmbezi",
-        "github": "denesmbezi",
-        "avatar": "https://github.com/denesmbezi.png"
+        "github": "denesmbezi"
     },
     {
         "name": "Ultron00x",
         "twitter": "",
         "portfolio": "https://jacob-space.vercel.app",
-        "github": "Jeccoman",
-        "avatar": "https://github.com/Jeccoman.png"
+        "github": "Jeccoman"
     },
     {
         "name": "Glory Lazaro Msasalaga",
         "twitter": "",
         "portfolio": "https://veryniceglory.deploy.tz",
-        "github": "glorymsasalaga",
-        "avatar": "https://github.com/glorymsasalaga.png"
+        "github": "glorymsasalaga"
     }
 ];
 
