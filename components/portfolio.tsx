@@ -4,6 +4,22 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { type Developer, getAlldevelopers } from "@/data/developers";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.05,
+		},
+	},
+};
+
+const itemVariants = {
+	hidden: { opacity: 0, y: 20 },
+	show: { opacity: 1, y: 0 },
+};
 
 function ProfileImage({
 	name,
@@ -67,14 +83,23 @@ function DeveloperItem({ Developer }: { Developer: Developer }) {
 	const githubUrl = `https://github.com/${github}`;
 
 	return (
-		<div className="w-full py-3 px-4 rounded-md transition-colors group duration-200 hover:bg-white/5">
+		<motion.div
+			variants={itemVariants}
+			whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+			className="w-full py-3 px-4 rounded-md transition-colors group duration-200 hover:bg-white/5 cursor-pointer border border-transparent hover:border-white/10"
+		>
 			<div className="flex items-center justify-between w-full">
 				<div className="flex items-center gap-4">
 					<div>
 						<ProfileImage name={name} github={github} twitter={twitter} />
 					</div>
 
-					<a target="_blank" href={githubUrl} className="hover:underline">
+					<a
+						target="_blank"
+						href={githubUrl}
+						className="hover:underline"
+						aria-label={`Visit ${name}'s GitHub profile`}
+					>
 						{name}
 					</a>
 				</div>
@@ -83,11 +108,12 @@ function DeveloperItem({ Developer }: { Developer: Developer }) {
 					target="_blank"
 					href={portfolio}
 					className="text-white/60 transition-colors duration-300 hover:underline group-hover:text-white text-base"
+					aria-label={`Visit ${name}'s portfolio at ${portfolioUrl}`}
 				>
 					{portfolioUrl}
 				</a>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 
@@ -101,11 +127,10 @@ function VerticalFade({
 	return (
 		<div
 			aria-hidden
-			className={`fixed left-0 right-0 z-10 pointer-events-none ${
-				side === "top"
-					? "top-0 bg-gradient-to-b from-black to-transparent"
-					: "bottom-0 bg-gradient-to-t from-black to-transparent"
-			} ${className}`}
+			className={`fixed left-0 right-0 z-10 pointer-events-none ${side === "top"
+				? "top-0 bg-gradient-to-b from-black to-transparent"
+				: "bottom-0 bg-gradient-to-t from-black to-transparent"
+				} ${className}`}
 			{...props}
 		/>
 	);
@@ -121,11 +146,10 @@ function HorizontalFade({
 	return (
 		<div
 			aria-hidden
-			className={`fixed top-0 bottom-0 w-[100px] z-10 pointer-events-none ${
-				side === "left"
-					? "left-0 bg-gradient-to-r from-black to-transparent"
-					: "right-0 bg-gradient-to-l from-black to-transparent"
-			} ${className}`}
+			className={`fixed top-0 bottom-0 w-[100px] z-10 pointer-events-none ${side === "left"
+				? "left-0 bg-gradient-to-r from-black to-transparent"
+				: "right-0 bg-gradient-to-l from-black to-transparent"
+				} ${className}`}
 			{...props}
 		/>
 	);
@@ -141,9 +165,8 @@ function VerticalLine({
 	return (
 		<div
 			aria-hidden
-			className={`hidden md:block fixed top-0 h-screen w-[1px] bg-cyan-900/80 z-[5] ${
-				side === "left" ? "left-[calc(50%-450px)]" : "right-[calc(50%-450px)]"
-			} ${className}`}
+			className={`hidden md:block fixed top-0 h-screen w-[1px] bg-cyan-900/80 z-[5] ${side === "left" ? "left-[calc(50%-450px)]" : "right-[calc(50%-450px)]"
+				} ${className}`}
 			{...props}
 		/>
 	);
@@ -164,13 +187,11 @@ function Line({
 	return (
 		<div
 			aria-hidden
-			className={`absolute ${
-				variant === "subtle" ? "opacity-60" : "opacity-80"
-			} ${
-				direction === "horizontal"
+			className={`absolute ${variant === "subtle" ? "opacity-60" : "opacity-80"
+				} ${direction === "horizontal"
 					? "h-[1px] w-[500vw] bg-cyan-900 -translate-x-1/2 left-1/2"
 					: "w-[1px] h-[500vw] bg-gradient-to-b from-cyan-900 to-transparent"
-			} z-[15] ${className}`}
+				} z-[15] ${className}`}
 			style={style}
 			{...props}
 		/>
@@ -227,9 +248,8 @@ export default function DeveloperProfiles() {
 
 		// Initial positioning
 		if (contentRef.current) {
-			contentRef.current.style.transform = `translateY(${
-				headingHeight + 50
-			}px)`;
+			contentRef.current.style.transform = `translateY(${headingHeight + 50
+				}px)`;
 		}
 
 		return () => {
@@ -241,7 +261,7 @@ export default function DeveloperProfiles() {
 	return (
 		<main className="min-h-screen bg-black text-white relative overflow-hidden font-sans">
 			{/* Fade effects */}
-			<VerticalFade side="top" className="h-[300px]" />
+			<VerticalFade side="top" className="h-[300px] z-[25]" />
 			<VerticalFade side="bottom" className="h-[100px] z-[30]" />
 			<HorizontalFade side="left" />
 			<HorizontalFade side="right" />
@@ -275,7 +295,7 @@ export default function DeveloperProfiles() {
 			{/* Title section that stays in place */}
 			<div
 				ref={headingRef}
-				className="fixed top-0 left-0 right-0 max-w-[800px] mx-auto pt-32 pb-8 z-[5] pointer-events-none"
+				className="fixed top-0 left-0 right-0 max-w-[800px] mx-auto pt-32 pb-8 z-[30] pointer-events-none bg-black"
 			>
 				<div className="relative">
 					{/* Lines for "Good" - top and bottom */}
@@ -335,6 +355,8 @@ export default function DeveloperProfiles() {
 						</span>
 					</h1>
 				</div>
+				{/* Gradient fade at the bottom of the header */}
+				<div className="absolute -bottom-32 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-[30]" />
 			</div>
 
 			<div
@@ -358,11 +380,16 @@ export default function DeveloperProfiles() {
 						</p>
 					</div>
 
-					<div className="w-full flex flex-col gap-2">
+					<motion.div
+						className="w-full flex flex-col gap-2"
+						variants={containerVariants}
+						initial="hidden"
+						animate="show"
+					>
 						{allDevelopers.map((Developer, index) => (
 							<DeveloperItem key={index} Developer={Developer} />
 						))}
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		</main>
