@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type DummyFile = {
 	id: number;
@@ -35,6 +35,7 @@ const FolderIcon = () => (
 		width={64}
 		height={64}
 		className="w-full h-full"
+		priority
 	/>
 );
 
@@ -49,7 +50,18 @@ const FileIcon = ({ size, image }: FileIconProps) => (
 
 const Folder = ({ folderName = "TDC" }: { folderName?: string }) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [isDesktop, setIsDesktop] = useState(false);
 	const router = useRouter();
+
+	useEffect(() => {
+		const checkDesktop = () => {
+			setIsDesktop(window.innerWidth >= 768);
+		};
+
+		checkDesktop();
+		window.addEventListener("resize", checkDesktop);
+		return () => window.removeEventListener("resize", checkDesktop);
+	}, []);
 
 	const playSound = () => {
 		const audio = new Audio("/click.mp3");
@@ -65,8 +77,9 @@ const Folder = ({ folderName = "TDC" }: { folderName?: string }) => {
 					height: "50px",
 				}}
 				animate={{
-					height: isOpen ? "210px" : "50px",
-					width: isOpen ? "350px" : "64px",
+					height: isOpen ? (isDesktop ? "400px" : "300px") : "50px",
+					width: isOpen ? (isDesktop ? "600px" : "90vw") : "64px",
+					maxWidth: isOpen ? (isDesktop ? "none" : "350px") : "none",
 					backgroundColor: isOpen ? "#f1f1f1" : "#1BA3F8",
 					borderRadius: isOpen ? "10px" : "10px",
 					cursor: isOpen ? "default" : "pointer",
@@ -99,7 +112,18 @@ const Folder = ({ folderName = "TDC" }: { folderName?: string }) => {
 						playSound();
 					}
 				}}
-				className="overflow-hidden"
+				onKeyDown={(e) => {
+					if (!isOpen && (e.key === "Enter" || e.key === " ")) {
+						e.preventDefault();
+						setIsOpen(true);
+						playSound();
+					}
+				}}
+				role="button"
+				tabIndex={0}
+				aria-expanded={isOpen}
+				aria-label={isOpen ? "Close folder" : "Open folder"}
+				className="overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black"
 			>
 				<AnimatePresence mode="popLayout">
 					{!isOpen && (
@@ -168,7 +192,8 @@ const Folder = ({ folderName = "TDC" }: { folderName?: string }) => {
 											setIsOpen(false);
 											playSound();
 										}}
-										className="hover:bg-black/10 rounded-full cursor-pointer p-0.5"
+										className="hover:bg-black/10 rounded-full cursor-pointer p-0.5 focus:outline-none focus:ring-1 focus:ring-black/20"
+										aria-label="Close folder"
 									>
 										<X className="text-black" size={14} />
 									</button>
@@ -177,9 +202,11 @@ const Folder = ({ folderName = "TDC" }: { folderName?: string }) => {
 							<div className="rounded-b-lg h-full w-full flex items-start justify-start">
 								<div
 									style={{
-										gridTemplateColumns: "repeat(4, 50px)",
+										gridTemplateColumns: isDesktop
+											? "repeat(auto-fill, minmax(100px, 1fr))"
+											: "repeat(auto-fill, minmax(80px, 1fr))",
 									}}
-									className="grid items-start justify-start gap-x-2 gap-y-4 overflow-y-scroll w-full p-2 py-4"
+									className="grid items-start justify-start gap-x-4 gap-y-6 overflow-y-scroll w-full p-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
 								>
 									{DUMMY_FILES.map((file: DummyFile, index) => (
 										<motion.div
@@ -189,25 +216,49 @@ const Folder = ({ folderName = "TDC" }: { folderName?: string }) => {
 													router.push(file.url);
 												}
 											}}
+											onKeyDown={(e) => {
+												if (e.key === "Enter" || e.key === " ") {
+													e.preventDefault();
+													playSound();
+													if (file.url) {
+														router.push(file.url);
+													}
+												}
+											}}
+											role="button"
+											tabIndex={0}
+											aria-label={`Open ${file.name}`}
 											key={"folder-item" + folderName + index}
 											initial={{
 												opacity: 0,
+												scale: 0.8,
 											}}
 											animate={{
 												opacity: 1,
+												scale: 1,
 											}}
 											exit={{
 												opacity: 0,
+												scale: 0.8,
 											}}
+											whileHover={{
+												scale: 1.05,
+												backgroundColor: "rgba(0,0,0,0.05)",
+											}}
+											whileTap={{ scale: 0.95 }}
 											transition={{
 												type: "spring",
 												stiffness: 300,
-												damping: 30,
+												damping: 25,
 											}}
-											className="w-[50px] h-[54px] gap-2 flex flex-col items-center justify-start overflow-hidden"
+											className={`gap-2 flex flex-col items-center justify-start overflow-hidden rounded-md p-2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-black/20 ${isDesktop ? "w-[100px] h-auto min-h-[110px]" : "w-full h-auto min-h-[80px]"
+												}`}
 										>
-											<FileIcon size={30} image={file.image} />
-											<p className="text-xs text-black truncate text-left w-full">
+											<FileIcon size={isDesktop ? 50 : 30} image={file.image} />
+											<p
+												className={`text-black text-center w-full ${isDesktop ? "text-sm" : "text-xs line-clamp-2 leading-tight"
+													}`}
+											>
 												{file.name}
 											</p>
 										</motion.div>

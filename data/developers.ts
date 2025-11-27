@@ -146,8 +146,11 @@ export const generatePlaceholderdevelopers = (count: number): Developer[] => {
 };
 
 export const getAlldevelopers = (placeholderCount = 15): Developer[] => {
-  return [
+  const allDevs = [
     ...developers,
     // ...generatePlaceholderdevelopers(placeholderCount)
   ];
+
+  // Sort alphabetically by name (case-insensitive)
+  return allDevs.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 };

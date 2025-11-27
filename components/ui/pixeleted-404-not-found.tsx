@@ -26,12 +26,6 @@ export function Error404({
 }: Error404Props) {
 	return (
 		<div className="min-h-screen flex items-center justify-center px-4 py-16 white black">
-			<link rel="preconnect" href="https://fonts.googleapis.com" />
-			<link
-				rel="preconnect"
-				href="https://fonts.gstatic.com"
-				crossOrigin="anonymous"
-			/>
 			<link
 				href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap"
 				rel="stylesheet"
@@ -71,6 +65,7 @@ export function Error404({
 									width={360}
 									height={220}
 									className="w-[360px] h-[220px] object-cover"
+									priority
 								/>
 							</div>
 						</div>

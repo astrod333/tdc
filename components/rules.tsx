@@ -3,12 +3,33 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { getAllRules, type Rule } from "@/data/rules";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.05,
+		},
+	},
+};
+
+const itemVariants = {
+	hidden: { opacity: 0, y: 20 },
+	show: { opacity: 1, y: 0 },
+};
 
 function RuleItem({ rule }: { rule: Rule }) {
 	const { title, description, emoji } = rule;
 
 	return (
-		<div className="w-full py-4 px-5 rounded-md transition-colors group duration-200 hover:bg-white/5">
+		<motion.div
+			variants={itemVariants}
+			initial={{ backgroundColor: "rgba(0, 0, 0, 0)", borderColor: "rgba(0, 0, 0, 0)" }}
+			whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.08)", borderColor: "rgba(255, 255, 255, 0.1)" }}
+			className="w-full py-4 px-5 rounded-md transition-colors group duration-200 cursor-pointer border border-transparent"
+		>
 			<div className="flex items-start gap-4 w-full">
 				{emoji && (
 					<div className="text-3xl flex-shrink-0" aria-hidden="true">
@@ -20,7 +41,7 @@ function RuleItem({ rule }: { rule: Rule }) {
 					<p className="text-white/70 text-sm leading-relaxed">{description}</p>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 
@@ -34,11 +55,10 @@ function VerticalFade({
 	return (
 		<div
 			aria-hidden
-			className={`fixed left-0 right-0 z-10 pointer-events-none ${
-				side === "top"
-					? "top-0 bg-gradient-to-b from-black to-transparent"
-					: "bottom-0 bg-gradient-to-t from-black to-transparent"
-			} ${className}`}
+			className={`fixed left-0 right-0 z-10 pointer-events-none ${side === "top"
+				? "top-0 bg-gradient-to-b from-black to-transparent"
+				: "bottom-0 bg-gradient-to-t from-black to-transparent"
+				} ${className}`}
 			{...props}
 		/>
 	);
@@ -54,11 +74,10 @@ function HorizontalFade({
 	return (
 		<div
 			aria-hidden
-			className={`fixed top-0 bottom-0 w-[100px] z-10 pointer-events-none ${
-				side === "left"
-					? "left-0 bg-gradient-to-r from-black to-transparent"
-					: "right-0 bg-gradient-to-l from-black to-transparent"
-			} ${className}`}
+			className={`fixed top-0 bottom-0 w-[100px] z-10 pointer-events-none ${side === "left"
+				? "left-0 bg-gradient-to-r from-black to-transparent"
+				: "right-0 bg-gradient-to-l from-black to-transparent"
+				} ${className}`}
 			{...props}
 		/>
 	);
@@ -74,9 +93,8 @@ function VerticalLine({
 	return (
 		<div
 			aria-hidden
-			className={`hidden md:block fixed top-0 h-screen w-[1px] bg-cyan-900/80 z-[5] ${
-				side === "left" ? "left-[calc(50%-450px)]" : "right-[calc(50%-450px)]"
-			} ${className}`}
+			className={`hidden md:block fixed top-0 h-screen w-[1px] bg-cyan-900/80 z-[5] ${side === "left" ? "left-[calc(50%-450px)]" : "right-[calc(50%-450px)]"
+				} ${className}`}
 			{...props}
 		/>
 	);
@@ -97,13 +115,11 @@ function Line({
 	return (
 		<div
 			aria-hidden
-			className={`absolute ${
-				variant === "subtle" ? "opacity-60" : "opacity-80"
-			} ${
-				direction === "horizontal"
+			className={`absolute ${variant === "subtle" ? "opacity-60" : "opacity-80"
+				} ${direction === "horizontal"
 					? "h-[1px] w-[500vw] bg-cyan-900 -translate-x-1/2 left-1/2"
 					: "w-[1px] h-[500vw] bg-gradient-to-b from-cyan-900 to-transparent"
-			} z-[15] ${className}`}
+				} z-[15] ${className}`}
 			style={style}
 			{...props}
 		/>
@@ -167,7 +183,7 @@ export default function CommunityRules() {
 	return (
 		<main className="min-h-screen bg-black text-white relative overflow-hidden font-sans">
 			{/* Fade effects */}
-			<VerticalFade side="top" className="h-[300px]" />
+			<VerticalFade side="top" className="h-[300px] z-[25]" />
 			<VerticalFade side="bottom" className="h-[100px] z-[30]" />
 			<HorizontalFade side="left" />
 			<HorizontalFade side="right" />
@@ -201,7 +217,7 @@ export default function CommunityRules() {
 			{/* Title section that stays in place */}
 			<div
 				ref={headingRef}
-				className="fixed top-0 left-0 right-0 max-w-[800px] mx-auto pt-32 pb-8 z-[5] pointer-events-none"
+				className="fixed top-0 left-0 right-0 max-w-[800px] mx-auto pt-32 pb-8 z-[30] pointer-events-none bg-black"
 			>
 				<div className="relative">
 					{/* Lines for "WhatsApp" */}
@@ -261,6 +277,8 @@ export default function CommunityRules() {
 						</span>
 					</h1>
 				</div>
+				{/* Gradient fade at the bottom of the header */}
+				<div className="absolute -bottom-32 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-[30]" />
 			</div>
 
 			<div
@@ -288,11 +306,16 @@ export default function CommunityRules() {
 						</a>
 					</div>
 
-					<div className="w-full flex flex-col gap-3">
+					<motion.div
+						className="w-full flex flex-col gap-3"
+						variants={containerVariants}
+						initial="hidden"
+						animate="show"
+					>
 						{allRules.map((rule, index) => (
 							<RuleItem key={index} rule={rule} />
 						))}
-					</div>
+					</motion.div>
 
 					<div className="mt-12 pt-8 border-t border-white/10 text-white/50 text-sm">
 						<p>
