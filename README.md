@@ -1,3 +1,5 @@
+
+
 # Tanzania Developer Community (TDC)
 
 Welcome to the official repository for the Tanzania Developer Community (TDC) website. This project serves as a digital hub for developers in Tanzania, featuring a unique, interactive user interface inspired by desktop environments.
@@ -16,6 +18,7 @@ This project is built with the latest web technologies to ensure performance, sc
 -   **Animations**: [Framer Motion](https://www.framer.com/motion/)
 -   **Icons**: [Lucide React](https://lucide.dev/)
 -   **UI Components**: Custom components with shadcn/ui integration
+-   **Linter & Formatter**: [Biome](https://biomejs.dev/)
 -   **Package Manager**: pnpm (recommended) / npm / yarn
 
 ## ✨ Features
