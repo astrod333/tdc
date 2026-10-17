@@ -363,4 +363,24 @@ export const members: Member[] = [
 			x: "innocentmasuki",
 		},
 	},
+	{
+	  name: "Albert Mwasisoba",
+	  github: "albizzy",
+	  title: "Front-end Engineer",
+	  location: "Dar es Salaam",
+	  bio: "Front-end engineer with over five years of experience turning product ideas and ambitious designs into web and mobile experiences. Mostly with TypeScript, occasionally with questionable amounts of confidence.",
+	  skills: {
+	    languages: ["TypeScript", "JavaScript"],
+	    frontend: ["React", "Next.js", "TailwindCSS"],
+		mobile: ["React Native", "Flutter", "Android"],
+	    design: ["Figma", "UI Design", "UX Design"],
+		devops: ["Linux"],
+		data: ["PostgreSQL", "MySQL"],
+	  },
+	  links: {
+	    website: "https://albertmwasisoba.vercel.app/",
+	    linkedin: "https://www.linkedin.com/in/albertmwasisoba",
+	    x: "iambizzy19",
+	  },
+	},
 ];
