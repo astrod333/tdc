@@ -397,4 +397,25 @@ export const members: Member[] = [
 			website: "https://www.haulaenterprises.co.tz",
 		},
 	},
+	{
+		name: "Happiness Neema Jr.",
+		github: "appjr5",
+		title: "Software Engineer",
+		location: "Dar es Salaam",
+		bio: "Backend developer with a nack for cool AI softwares.",
+		skills: {
+			languages: ["HTML"],
+			frontend: ["Tailwind CSS"],
+			backend: ["FastAPI"],
+			mobile: ["Flutter"],
+			data: ["PostgreSQL", "MySQL", "Redis"],
+			ai: ["Machine Learning", "Chatbots", "Huggingface LLMs"],
+			devops: ["Linux"],
+		},
+		links: {
+			linkedin: "https://linkedin.com/in/happinessmpazi",
+		},
+		openToWork: true,
+		hireContact: "appjr360@gmail.com",
+	},
 ];

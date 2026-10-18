@@ -79,7 +79,14 @@ export const skillCatalog = {
 		"Data Analysis",
 		"Data Engineering",
 	],
-	ai: ["Machine Learning", "LLMs", "Computer Vision", "NLP"],
+	ai: [
+		"Machine Learning",
+		"LLMs",
+		"Computer Vision",
+		"NLP",
+		"Chatbots",
+		"Huggingface LLMs",
+	],
 } as const;
 
 export type SkillCategory = keyof typeof skillCatalog;
