@@ -418,4 +418,24 @@ export const members: Member[] = [
 		openToWork: true,
 		hireContact: "appjr360@gmail.com",
 	},
+	{
+		name: "Albert Mwasisoba",
+		github: "albizzy",
+		title: "Front-end Engineer",
+		location: "Dar es Salaam",
+		bio: "Front-end engineer with over five years of experience turning product ideas and ambitious designs into web and mobile experiences. Mostly TypeScript, sometimes with questionable amounts of confidence.",
+		skills: {
+			languages: ["TypeScript", "JavaScript"],
+			frontend: ["React", "Next.js", "Tailwind CSS"],
+			mobile: ["React Native", "Flutter", "Android"],
+			design: ["Figma", "UI Design", "UX Design"],
+			devops: ["Linux"],
+			data: ["PostgreSQL", "MySQL"],
+		},
+		links: {
+			website: "https://albertmwasisoba.vercel.app/",
+			linkedin: "https://www.linkedin.com/in/albertmwasisoba",
+			x: "iambizzy19",
+		},
+	},
 ];
