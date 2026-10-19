@@ -386,9 +386,21 @@ export const members: Member[] = [
 	{
 		name: "Elisha Gerson",
 		github: "somebody1011",
+		title: "full stack developer",
+		location: "Mbeya",
+		bio: "I am a  full-stack web developer with experience building scalable applications using modern technologies such as React, Next.js, Node.js, TypeScript, and databases. I am passionate about solving real-world problems through technology, developing secure and efficient software solutions, and continuously expanding my skills in software engineering.",
+		skills:{
+			languages:["TypeScript", "JavaScript", "Python", "HTML", "CSS", "SQL"],
+			frontend:["React", "Next.js", "Tailwind CSS", "Bootstrap"],
+			backend:["Node.js", "Express", "REST APIS", "Prisma ORM"],
+			devops:["Docker", "Vercel", "Firebase", "Supabase", "Linux", "CI/CD"],
+			data:["PostgreSQL", "MySQL", "MongoDB"]
+		},
 		links: {
 			website: "https://somebody1011.github.io/",
 		},
+		openToWork: true,
+		hireContact: "elishagerson2@gmail.com"
 	},
 	{
 		name: "YASINI KASIDI",
