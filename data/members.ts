@@ -392,7 +392,7 @@ export const members: Member[] = [
 		skills:{
 			languages:["TypeScript", "JavaScript", "Python", "HTML", "CSS", "SQL"],
 			frontend:["React", "Next.js", "Tailwind CSS", "Bootstrap"],
-			backend:["Node.js", "Express", "REST APIS", "Prisma ORM"],
+			backend:["Node.js", "Express", "REST APIs", "Prisma ORM"],
 			devops:["Docker", "Vercel", "Firebase", "Supabase", "Linux", "CI/CD"],
 			data:["PostgreSQL", "MySQL", "MongoDB"]
 		},
